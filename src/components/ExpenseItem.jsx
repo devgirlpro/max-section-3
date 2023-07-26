@@ -3,7 +3,7 @@ import "./ExpenceItem.css";
 import ExpenseDate from "./ExpenseDate";
 import Card from "./Card";
 
-function ExpenseItem(props) {
+const ExpenseItem = (props) => {
     return (
         <Card className='expense-item'>
             {/* <div>{props.expense.date.toISOString()}</div> */}
