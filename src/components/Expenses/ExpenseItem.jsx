@@ -6,10 +6,10 @@ import Card from '../UI/Card';
 const ExpenseItem = (props) => {
     const [title, setTitle] = useState(props.item.title);
 
-    function changeTitleHandler() {
-        console.log('tite will change');
+    const changeTitleHandler = () => {
+        console.log('title will get change');
         setTitle('Updated!');
-    }
+    };
     return (
         <Card className='expense-item'>
             {/* <div>{props.item.date.toISOString()}</div> */}
