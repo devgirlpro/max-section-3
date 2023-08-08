@@ -6,8 +6,18 @@ function ExpenseForm() {
     const [enteredAmount, setEnteredAmount] = useState('');
     const [enteredDeate, setEntereddDate] = useState('');
 
+    /*    const [userInput, setUserInput] = useState({
+        enteredTitle: '',
+        enteredAmount: '',
+        enteredDeate: ''
+    }) */
+
     const titleChangeHandler = (e) => {
         setEnteredTitle(e.target.value);
+        // setUserInput({
+        //     ...userInput,
+        //     enteredTitle: e.target.value,
+        // })
     };
     const amountChangeHandler = (e) => {
         setEnteredAmount(e.target.value);
