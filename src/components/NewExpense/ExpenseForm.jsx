@@ -1,41 +1,10 @@
 import React, { useState } from 'react';
 import './ExpenseForm.css';
 
-function ExpenseForm() {
+function ExpenseForm(props) {
     const [enteredTitle, setEnteredTitle] = useState('');
     const [enteredAmount, setEnteredAmount] = useState('');
-    const [enteredDeate, setEntereddDate] = useState('');
-
-    //instead 3 state we using useState only onse and passing in an object as a value
-
-    /*  const [userInput, setUserInput] = useState({
-        enteredTitle: '',
-        enteredAmount: '',
-        enteredDeate: ''
-    }) 
-    
-    const titleChangeHandler = (event) => {
-        setUserInput({
-            ...userInput,
-            enteredTitle: event.target.value
-        })
-    }
-    
-    */
-
-    // ***correct way to updatinf state depends on the previus state****
-
-    /*
-    const titleChangeHandler = (event) => {
-        setUserInput((prevState) => {
-            return { 
-                ...prevState,
-                enteredTitle: event.target.value  
-            }
-        })
-
-    }
-     */
+    const [enteredDate, setEntereddDate] = useState('');
 
     const titleChangeHandler = (e) => {
         setEnteredTitle(e.target.value);
@@ -51,12 +20,13 @@ function ExpenseForm() {
     const submitHandler = (event) => {
         event.preventDefault();
 
-        const ExpenseData = {
+        const expenseData = {
             title: enteredTitle,
             amount: enteredAmount,
-            date: new Date(enteredDeate),
+            date: new Date(enteredDate),
         };
-        console.log(ExpenseData);
+        console.log(expenseData);
+        props.onSaveExpenseData(expenseData)
         setEnteredTitle('');
         setEnteredAmount('');
         setEntereddDate('');
@@ -80,7 +50,7 @@ function ExpenseForm() {
                         min='2019-01-01'
                         max='2022-12-31'
                         onChange={dateChangeHandler}
-                        value={enteredDeate}
+                        value={enteredDate}
                     />
                 </div>
                 <div>
