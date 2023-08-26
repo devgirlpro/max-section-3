@@ -36,9 +36,9 @@ const App = () => {
 
   const addExpenseHandler = (newExpenseData) => {
     //clean way updating state, base on older stanpshot of same state
-    setExpenses((prevExpenses ) => {
+    setExpenses((prevExpenses) => {
       return [newExpenseData, ...prevExpenses]
-      
+
     })
     // setExpenses([newExpenseData, ...expenses])
   }
